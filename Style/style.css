@@ -385,13 +385,60 @@ body {
         max-height: 150px;
     }
     
+    /* Ajustar tamaño de fotos flotantes */
     .foto-flotante {
-        width: 100px;
-        height: 100px;
+        width: 80px;
+        height: 80px;
+        border: 3px solid #fff;
     }
     
-    .media-flotante {
-        display: none;
+    /* Reposicionar las imágenes para móviles */
+    .izquierda-arriba {
+        top: 20px;
+        left: 10px;
+    }
+    
+    .derecha-arriba {
+        top: 20px;
+        right: 10px;
+    }
+    
+    .izquierda-abajo {
+        bottom: 20px;
+        left: 10px;
+    }
+    
+    .derecha-abajo {
+        bottom: 20px;
+        right: 10px;
+    }
+}
+
+/* Responsive para móviles grandes (Samsung S24, iPhone Pro Max, etc) */
+@media (min-width: 376px) and (max-width: 480px) {
+    .foto-flotante {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .izquierda-arriba {
+        top: 25px;
+        left: 15px;
+    }
+    
+    .derecha-arriba {
+        top: 25px;
+        right: 15px;
+    }
+    
+    .izquierda-abajo {
+        bottom: 25px;
+        left: 15px;
+    }
+    
+    .derecha-abajo {
+        bottom: 25px;
+        right: 15px;
     }
 }
 
@@ -429,6 +476,33 @@ body {
     
     .video-carta {
         max-height: 150px;
+    }
+    
+    /* Hacer las fotos aún más pequeñas en pantallas muy pequeñas */
+    .foto-flotante {
+        width: 70px;
+        height: 70px;
+        border: 2px solid #fff;
+    }
+    
+    .izquierda-arriba {
+        top: 15px;
+        left: 5px;
+    }
+    
+    .derecha-arriba {
+        top: 15px;
+        right: 5px;
+    }
+    
+    .izquierda-abajo {
+        bottom: 15px;
+        left: 5px;
+    }
+    
+    .derecha-abajo {
+        bottom: 15px;
+        right: 5px;
     }
 }
 

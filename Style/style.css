@@ -1,0 +1,345 @@
+body {
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: "Dancing Script", cursive;
+}
+
+.contenedor{
+    position: relative;
+    text-align: center;
+    width: 400px;
+}
+
+.boton{
+    padding: 14px 40px;
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 18px;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 15px rgba(231, 76, 60, 0.4);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-top: 20px;
+    position: relative;
+    z-index: 20;
+}
+
+.boton:hover{
+    background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(231, 76, 60, 0.5);
+}
+
+.boton:active{
+    transform: translateY(0);
+}
+
+.boton.oculto{
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0);
+}
+
+.sobre{
+    position: relative;
+    width: 320px;
+    height: 200px;
+    background: linear-gradient(to bottom, #fdc5d6 0%, #f8a5ba 100%);
+    border-radius: 0 0 15px 15px;
+    margin: 0 auto;
+    z-index: 10;
+    transition: all 0.5s ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    perspective: 1000px;
+}
+
+.sobre.ocultar{
+    opacity: 0;
+    transform: scale(0.8);
+    pointer-events: none;
+}
+
+.tapa{
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 160px solid transparent;
+    border-right: 160px solid transparent;
+    border-top: 120px solid #ff9a8b;
+    top: 0;
+    left: 0;
+    transform-origin: 50% 0%;
+    transition: transform 1s ease-in-out;
+    z-index: 15;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+}
+
+.sobre.abierto .tapa{
+    transform: rotateX(-180deg);
+}
+
+.sobre.ocultar-tapa .tapa{
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.carta{
+    position: absolute;
+    background: linear-gradient(to bottom, #ffffff 0%, #fffef9 100%);
+    width: 280px;
+    padding: 35px 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%) translateY(0);
+    opacity: 0;
+    transition: all 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 5;
+    border: 2px solid #f8bbd0;
+}
+
+.carta.salir{
+    transform: translateX(-50%) translateY(-50px);
+    opacity: 1;
+    z-index: 25;
+}
+
+.carta h1{
+    text-align: center;
+    color: #e74c3c;
+    margin: 15px 0 20px;
+    font-size: 2.2em;
+    text-shadow: 2px 2px 4px rgba(231, 76, 60, 0.2);
+    font-weight: 600;
+}
+
+/* Contenedor de imagen */
+.imagen-contenedor {
+    width: 100%;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.imagen-carta {
+    max-width: 100%;
+    height: auto;
+    max-height: 200px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    border: 3px solid #f8bbd0;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.imagen-carta:hover {
+    transform: scale(1.05);
+}
+
+/* Video */
+.video-carta {
+    max-width: 100%;
+    width: 100%;
+    max-height: 250px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    border: 3px solid #f8bbd0;
+    background: #000;
+}
+
+.carta p{
+    color: #555;
+    line-height: 1.6;
+    margin: 12px 0;
+    font-size: 1.05em;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.corazon{
+    text-align: center;
+    font-size: 50px;
+    color: #e74c3c;
+    line-height: 1;
+    margin-bottom: 5px;
+    animation: latido 1.5s infinite;
+}
+
+@keyframes latido {
+    0%, 100% { transform: scale(1); }
+    25% { transform: scale(1.1); }
+    50% { transform: scale(1); }
+}
+
+/* FUEGOS ARTIFICIALES ÉPICOS */
+.fuegos {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+/* Destello inicial de la explosión */
+.destello {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: destello 0.6s ease-out forwards;
+    filter: blur(3px);
+}
+
+@keyframes destello {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 1;
+        box-shadow: 0 0 30px currentColor, 0 0 60px currentColor;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(3);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(5);
+        opacity: 0;
+        box-shadow: 0 0 100px currentColor;
+    }
+}
+
+/* Partículas que explotan */
+.particula {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: explotar 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    box-shadow: 0 0 15px currentColor, 0 0 30px currentColor;
+    filter: brightness(1.5);
+}
+
+@keyframes explotar {
+    0% {
+        transform: translate(-50%, -50%) translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) translate(var(--dx), var(--dy)) scale(0);
+        opacity: 0;
+    }
+}
+
+/* Estelas de las partículas */
+.estela {
+    position: absolute;
+    width: 3px;
+    height: 20px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: estela 3s ease-out forwards;
+    opacity: 0.7;
+    filter: blur(1px);
+}
+
+@keyframes estela {
+    0% {
+        transform: translate(-50%, -50%) translate(0, 0) scaleY(1);
+        opacity: 0.7;
+    }
+    30% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: translate(-50%, -50%) translate(
+            calc(var(--dx) * 0.8),
+            calc(var(--dy) * 0.8)
+        ) scaleY(0.3);
+        opacity: 0;
+    }
+}
+
+/* MEDIOS FLOTANTES DISTRIBUIDOS */
+.media-flotante {
+    position: fixed;
+    opacity: 0;
+    transition: all 1s ease;
+    z-index: 1;
+}
+
+.media-flotante.mostrar {
+    opacity: 1;
+}
+
+.foto-flotante {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 4px solid #fff;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    transform: rotate(0deg);
+    transition: transform 0.3s ease;
+}
+
+.foto-flotante:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+}
+
+/* Posiciones */
+.izquierda-arriba {
+    top: 50px;
+    left: 50px;
+    transform: rotate(-8deg);
+}
+
+.derecha-arriba {
+    top: 50px;
+    right: 50px;
+    transform: rotate(8deg);
+}
+
+.izquierda-abajo {
+    bottom: 50px;
+    left: 50px;
+    transform: rotate(5deg);
+}
+
+.derecha-abajo {
+    bottom: 50px;
+    right: 50px;
+    transform: rotate(-5deg);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .media-flotante {
+        display: none;
+    }
+}
+
+
+.fuegos p{
+    color: #555;
+    line-height: 1.6;
+    margin: 12px 0;
+    font-size: 1.05em;
+    text-align: center;
+}

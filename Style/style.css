@@ -328,13 +328,109 @@ body {
     transform: rotate(-5deg);
 }
 
-/* Responsive */
+/* Responsive para móviles */
 @media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    .contenedor {
+        width: 100%;
+        max-width: 350px;
+        padding: 0 10px;
+    }
+    
+    .sobre {
+        width: 280px;
+        height: 180px;
+    }
+    
+    .tapa {
+        border-left: 140px solid transparent;
+        border-right: 140px solid transparent;
+        border-top: 110px solid #ff9a8b;
+    }
+    
+    .boton {
+        padding: 12px 30px;
+        font-size: 16px;
+    }
+    
+    .carta {
+        width: 90%;
+        max-width: 280px;
+        padding: 25px 15px;
+        top: 70px;
+    }
+    
+    .carta h1 {
+        font-size: 1.8em;
+        margin: 10px 0 15px;
+    }
+    
+    .carta p {
+        font-size: 0.95em;
+        margin: 10px 0;
+    }
+    
+    .corazon {
+        font-size: 40px;
+    }
+    
+    .video-carta {
+        max-height: 180px;
+    }
+    
+    .imagen-carta {
+        max-height: 150px;
+    }
+    
+    .foto-flotante {
+        width: 100px;
+        height: 100px;
+    }
+    
     .media-flotante {
         display: none;
     }
 }
 
+/* Responsive para pantallas muy pequeñas (iPhone SE, etc) */
+@media (max-width: 375px) {
+    .contenedor {
+        max-width: 320px;
+    }
+    
+    .sobre {
+        width: 260px;
+        height: 160px;
+    }
+    
+    .tapa {
+        border-left: 130px solid transparent;
+        border-right: 130px solid transparent;
+        border-top: 100px solid #ff9a8b;
+    }
+    
+    .carta {
+        width: 95%;
+        max-width: 260px;
+        padding: 20px 12px;
+    }
+    
+    .carta h1 {
+        font-size: 1.5em;
+    }
+    
+    .boton {
+        padding: 10px 25px;
+        font-size: 15px;
+    }
+    
+    .video-carta {
+        max-height: 150px;
+    }
+}
 
 .fuegos p{
     color: #555;
